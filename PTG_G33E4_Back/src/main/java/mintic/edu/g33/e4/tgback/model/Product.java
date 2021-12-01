@@ -1,38 +1,28 @@
 package mintic.edu.g33.e4.tgback.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
-//anotaciones
-@Entity
+@Document(collection="productos")
 public class Product {
 	
 	//atributos tabla
 	@Id
-	@Size(min=2,max=20)
 	private int codigo_producto;
 	
-	@NotEmpty
-	@Size(min=5,max=50)
 	private String nombre_producto;
 	
-	@Min(value=8)
-	@Max(value=20)
 	private int nitproveedor;
 	
 	private double precio_compra;
 	
-	@Min(value=0)
-	@Max(value=19)
 	private double ivacompra;
 	
 	private double precio_venta;
 
-	public Product(@Size(min = 2, max = 20) int codigo_producto,
-			@NotEmpty @Size(min = 5, max = 50) String nombre_producto, @Min(8) int nitproveedor, double precio_compra,
-			@Min(19) @Max(35) double ivacompra, double precio_venta) {
+	public Product(int codigo_producto, String nombre_producto, int nitproveedor, double precio_compra,
+			double ivacompra, double precio_venta) {
 		this.codigo_producto = codigo_producto;
 		this.nombre_producto = nombre_producto;
 		this.nitproveedor = nitproveedor;

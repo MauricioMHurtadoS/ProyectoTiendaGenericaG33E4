@@ -1,5 +1,8 @@
 package mintic.edu.g33.e4.tgback.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="usuarios")
 public class Login {
 	
 	private String userName;
